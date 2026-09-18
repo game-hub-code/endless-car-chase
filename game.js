@@ -82,6 +82,8 @@ function ToggleFullScreen() {
 		var loadingBar = document.querySelector("#loadingBlock");
 		var progressBarFull = document.querySelector("#fullBar");
 		var progressBarEmpty = document.querySelector("#emptyBar");
+		var splashOverlay = document.querySelector("#splashOverlay");
+		var SPLASH_COVER_MS = 6000; // observed splash lasts 2-3s; buffered to 4s
 
 		if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 			container.className = "unity-mobile";
@@ -97,6 +99,9 @@ function ToggleFullScreen() {
 			progressBarEmpty.style.width = (100 * (1 - progress)) + "%";
 		}).then((unityInstance) => {
 			loadingBar.style.display = "none";
+			setTimeout(() => {
+				splashOverlay.classList.add("fadeOut");
+			}, SPLASH_COVER_MS);
 		}).catch((message) => {
 			alert(message);
 		});
