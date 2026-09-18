@@ -23,3 +23,33 @@ npx serve
 Then open the URL printed in the terminal (e.g. `http://localhost:3000`).
 
 ## Project Structure
+
+```
+endless-car-chase/
+├── Build/                          # Unity WebGL build output
+│   ├── Endless_Car_Chase.data
+│   ├── Endless_Car_Chase.framework.js
+│   ├── Endless_Car_Chase.loader.js
+│   └── Endless_Car_Chase.wasm
+├── TemplateData/                   # Static assets (styles, images)
+│   ├── css/
+│   │   └── style.css
+│   └── img/
+│       ├── background.png
+│       ├── favicon.ico
+│       ├── Logo.png
+│       ├── progressEmpty.png
+│       └── progressFull.png
+├── game.js                         # Game/loader glue script
+└── index.html                      # Entry point
+```
+
+## Tech Stack
+
+- Unity (WebGL export)
+- HTML / CSS / JavaScript
+
+## Notes
+
+- Requires a modern browser with WebAssembly support.
+- Large asset sizes (`.data` ~8 MB, `.wasm` ~21 MB) — initial load may take a few seconds depending on connection speed.
